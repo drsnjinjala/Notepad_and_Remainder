@@ -9,10 +9,13 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -28,7 +31,6 @@ import java.util.ArrayList;
 public class ImageAdapter extends PagerAdapter {
     Context context;
     private ArrayList<String> galImages;
-
     //    private int[] GalImages = new int[] {
 //            R.drawable.circle_img,
 //            R.drawable.circle_img,
@@ -44,31 +46,23 @@ public class ImageAdapter extends PagerAdapter {
         return galImages.size();
     }
 
-    @Override
-    public boolean isViewFromObject(View view, Object object) {
-        return view == ((ImageView) object);
-    }
-
     @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        ImageView imageView = new ImageView(context);
-        int padding = context.getResources().getDimensionPixelSize(R.dimen.padding_medium);
-        imageView.setPadding(padding, padding, padding, padding);
-        imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.image_item, null);
+        ImageView imageView = view.findViewById(R.id.imageView);
         Glide.with(context).load(Uri.parse(galImages.get(position))).placeholder(R.drawable.circle_img).into(imageView);
-        Log.d("Image", "instantiateItem: " + galImages.get(position));
-        // imageView.setImageResource(R.drawable.datanotfound);
+
         ((ViewPager) container).addView(imageView, 0);
-
-
-        return imageView;
+        return view;
     }
 
     @Override
-    public void destroyItem(ViewGroup container, int position, Object object) {
-        ((ViewPager) container).removeView((ImageView) object);
+    public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
+        return false;
     }
+
 
     public static Drawable drawableFromUrl(String url) throws IOException {
         Bitmap x;

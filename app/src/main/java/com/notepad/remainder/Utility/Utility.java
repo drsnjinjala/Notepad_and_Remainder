@@ -23,7 +23,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import think.outside.the.box.handler.APIManager;
 
 public class Utility {
     public static final String USERNAME = "username";

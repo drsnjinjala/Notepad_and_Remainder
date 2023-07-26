@@ -53,7 +53,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 @SuppressWarnings("all")
-/*https://dribbble.com/shots/11875872-A-simple-and-lightweight-note-app*/ public class NewNoteActivity extends AppCompatActivity implements View.OnClickListener, DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
+/*https://dribbble.com/shots/11875872-A-simple-and-lightweight-note-app*/
+
+public class NewNoteActivity extends AppCompatActivity implements View.OnClickListener, DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
     ActivityNewNoteBinding binding;
     final String TAG = "NewNoteActivity";
     private String mDefaultColor = "#FFFFFF";
