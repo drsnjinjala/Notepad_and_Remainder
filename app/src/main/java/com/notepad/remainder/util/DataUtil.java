@@ -5,10 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
-import android.util.Log;
-
-import com.allcast.apps.reciever.screen.mirroring.app.pojo.FolderModel;
-import com.allcast.apps.reciever.screen.mirroring.app.pojo.MediaPojo;
+import android.util.Log; 
+import com.notepad.remainder.pojo.FolderModel;
+import com.notepad.remainder.pojo.MediaPojo;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
